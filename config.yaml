@@ -1,0 +1,121 @@
+# ------------------------------------------------------------------
+# MASTER CONFIGURATION FILE
+# ------------------------------------------------------------------
+# This file contains all settings for both audio generation
+# and video rendering.
+
+# ------------------------------------------------------------------
+# FILE & DIRECTORY PATHS
+# ------------------------------------------------------------------
+# All relative and absolute paths used by the application.
+paths:
+  # Directory where final videos will be saved
+  video_output_dir: "output/"
+
+  # Directory containing background video clips
+  background_videos: "assets/bgvideos"
+
+  # Directory containing character images
+  character_images: "assets/chars"
+
+  # Directory containing voice reference audio files
+  reference_audio: "assets/ref_audio"
+
+  # Directory for temporary audio files (e.g., audio0.wav)
+  temp_audio: "assets/tmp/audio"
+
+  # Filename for the temporary audio file used by moviepy during muxing
+  temp_mux_audio: "temp-audio.m4a"
+
+# ------------------------------------------------------------------
+# AUDIO GENERATION (F5TTS)
+# ------------------------------------------------------------------
+audio:
+  # F5TTS model settings
+  tts_model:
+    # Model name (e.g., "F5TTS_v1_Base")
+    model_name: "F5TTS_v1_Base"
+    # 'cuda' for GPU (recommended) or 'cpu'
+    device: "cuda"
+
+  # Default inference parameters for the TTS
+  inference_params:
+    nfe_step: 32
+    seed: 153
+
+  # Voice library. The Python code will load these.
+  # Keys ("peter", "stewie") are used to select voices.
+  voices:
+    peter:
+      # Filename relative to paths.reference_audio
+      ref_file: "peter.WAV"
+      ref_text: "I'll tell you, Bob, I just got in my car and drove it. And when there was a guy in my way, I killed him."
+      speed: 0.6
+
+    stewie:
+      ref_file: "stewie.mp3"
+      ref_text: "I am a big fan of sundresses."
+      speed: 1.2
+
+# ------------------------------------------------------------------
+# VIDEO RENDERING (MoviePy)
+# ------------------------------------------------------------------
+video:
+  # Character settings
+  characters:
+    # Settings for the character who speaks first
+    char1:
+      # Filename relative to paths.character_images
+      image_default: "char1_default.png"
+      image_pointing: "char1_pointing.png"
+      # Position when not pointing [x, y] or [horizontal_str, y]
+      position_default: ['center', 1000]
+      # Position when pointing
+      position_pointing: [-100, 1000]
+      # Height as a ratio of video height
+      size_ratio: 0.4
+
+    # Settings for the character who speaks second
+    char2:
+      image_default: "char2_default.png"
+      image_pointing: "char2_pointing.png"
+      position_default: ['center', 1000]
+      position_pointing: [450, 1000]
+      size_ratio: 0.4
+
+  # Settings for the image overlays shown when a character points
+  image_overlays:
+    # Width as a ratio of video width
+    size_ratio: 0.6
+    # Position when char1 is pointing
+    position_char1: [400, 800]
+    # Position when char2 is pointing
+    position_char2: [50, 800]
+
+  # Subtitle/Caption settings
+  captions:
+    font: 'arialbd'
+    font_size: 80
+    # Max characters per chunk (for chunk_caption_text)
+    max_line_length: 15
+    # Max caption width as a ratio of video width
+    max_width_ratio: 0.6
+    # [x, y] or [horizontal_str, y]
+    position: ['center', 500]
+    # [R, G, B]
+    color_rgb: [0, 0, 0]
+    stroke_color_rgb: [255, 255, 255]
+    stroke_width: 6
+    margin: [15, 15]
+
+  # FFMPEG export settings
+  render:
+    codec: "libx264"
+    audio_codec: "aac"
+    threads: 12
+    # FFMPEG parameters list
+    ffmpeg_params:
+      - "-preset"
+      - "medium"
+      - "-crf"
+      - "23"
