@@ -1,4 +1,4 @@
 *.mp4
 .venv
-assets/*
+assets/*/
 .env
