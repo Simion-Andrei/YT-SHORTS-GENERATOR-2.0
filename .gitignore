@@ -1,4 +1,8 @@
 *.mp4
 .venv
-assets/*/
+assets/bgvideos/*
+assets/characters/*
+assets/images/*
+assets/ref_audio/*
+assets/tmp/*
 .env
