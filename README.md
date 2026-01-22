@@ -6,6 +6,7 @@
 ![Config](https://img.shields.io/badge/Config-YAML-purple?style=for-the-badge&logo=yaml)
 
 > **🔊 Sound On!** Watch the demo below to hear the AI voice cloning in action.
+
 ![VIDEO](https://github.com/user-attachments/assets/10e13476-d0e0-41c8-9523-79c13bc76788)
 
 **YT Shorts Generator 2.0** is an automated engine designed to create viral-style conversational short videos (Shorts/Reels/TikTok). 
