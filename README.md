@@ -5,6 +5,9 @@
 ![MoviePy](https://img.shields.io/badge/Render-MoviePy-red?style=for-the-badge&logo=moviepy)
 ![Config](https://img.shields.io/badge/Config-YAML-purple?style=for-the-badge&logo=yaml)
 
+> **🔊 Sound On!** Watch the demo below to hear the AI voice cloning in action.
+https://github.com/user-attachments/assets/10e13476-d0e0-41c8-9523-79c13bc76788
+
 **YT Shorts Generator 2.0** is an automated engine designed to create viral-style conversational short videos (Shorts/Reels/TikTok). 
 
 Unlike generic automation tools, this project leverages **F5-TTS** (a state-of-the-art local voice cloning model) to generate high-fidelity dialogue between characters (e.g., Rick & Morty, Family Guy) without relying on expensive external APIs. It automatically handles video composition, dynamic character switching, contextual overlays, and stylized captions.
